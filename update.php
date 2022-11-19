@@ -1,8 +1,8 @@
 <?php
     require_once("vendor/autoload.php");
-    $cadena = "mongodb+srv://Jose:LrZT62vEFr1bPkjp@lab6.urwtlse.mongodb.net/?retryWrites=true&w=majority";
+    $cadena = "mongodb+srv://Jose:LrZT62vEFr1bPkjp@cluster0.8hvepxf.mongodb.net/?retryWrites=true&w=majority";
     $cliente = new MongoDB\Client($cadena);
-    $conexion = $cliente->selectDataBase("basedatos");
+    $conexion = $cliente->selectDataBase("Cluster0");
     
     $tablaColeccion = $conexion->comentario;
   /*  $id = $_GET["id"];
@@ -12,7 +12,7 @@
                                                         "mensaje"=>$_GET["mensaje"]
                                                         ]  
                                             ]);
-    echo "Cantidad de registros actualizaos " . $resultado->getModifiedCount();
+    echo "Cantidad de registros actualizados " . $resultado->getModifiedCount();
 */
     $resultado = $tablaColeccion->updateOne(["correo" => $_GET["correo"]],
     ['$set' => [
